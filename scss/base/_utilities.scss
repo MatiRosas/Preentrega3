@@ -1,0 +1,73 @@
+//SECCION PRODUCTOS
+//Container de Background
+@mixin contain ($display, $justify, $direction, $align, $position) {
+    display: $display;
+    justify-content: $justify;
+    flex-direction: $direction;
+    align-items: $align;
+    position: $position;
+}
+
+.contain {
+    @include contain(flex, space-between, row, center, static);
+    padding: 25px;
+    width: 90%;
+    height: 95%;
+    background-color: $color-containproducts;
+
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+}
+
+//title-text
+@mixin title ($display, $direction) {
+    display: $display;
+    flex-direction: $direction;
+}
+
+.title-text {
+@include title (flex, column);
+}
+
+//texto-description-product
+@mixin texto-1 ($display,$font,$padding-bottom,$direction) {
+    display: $display;
+    font-family: $font;
+    padding-bottom: $padding-bottom;
+    flex-direction: $direction;
+}
+
+.texto-1 {
+@include texto-1(flex, "Teko", 2%, column);
+}
+
+//description text
+@mixin description ($direction, $align, $font) {
+    flex-direction: $direction;
+    align-items: $align;
+    font-family: $font;
+}
+
+.text-description {
+    @include description(column, flex-start, "Teko");
+    display: flex;
+    color: $color-whitegrey;
+    font-size: 1.2em;
+}
+
+//img de los productos
+@mixin imagenes ($w,$h,$obj) {
+    width: $w;
+    height: $h;
+    object-fit: $obj;
+}
+
+.photo {
+    @include imagenes (20%, 100%, cover); 
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+    position: relative;
+}
